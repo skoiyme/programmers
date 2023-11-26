@@ -22,11 +22,11 @@ public class 두수의합 {
 	}
 	
     public int solution2(int num1, int num2) {
-    	double answer1 = num1/num2;
-//        if(num1>0 && num1<=100 && num2>0 && num2<=100){
-//        	
-//        }
-        return 0;
+    	double answer1 = 0;
+        if(num1>0 && num1<=100 && num2>0 && num2<=100){
+        	answer1 = num1/num2;
+        }
+        return (int)answer1*10000;
     }
 
 }
