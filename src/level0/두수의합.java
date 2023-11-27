@@ -6,7 +6,7 @@ public class 두수의합 {
 	public static void main(String[] args) {
 		
 		두수의합 result = new 두수의합();
-		int rere = result.solution2(3, 2);
+		int rere = result.solution2(7, 3);
 		System.out.println(rere);
 	
 	}
@@ -22,11 +22,11 @@ public class 두수의합 {
 	}
 	
     public int solution2(int num1, int num2) {
-    	double answer1 = 0;
+    	int answer1 = 0;
         if(num1>0 && num1<=100 && num2>0 && num2<=100){
-        	answer1 = num1/num2;
+        	 answer1 = (int) ((double)num1/num2*1000);
         }
-        return (int)answer1*10000;
+        return answer1;
     }
 
 }
