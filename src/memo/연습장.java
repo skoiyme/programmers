@@ -1,46 +1,48 @@
 package memo;
 
+
 public class 연습장 {
 
 	public static void main(String[] args) {
-
+		
 		연습장 a = new 연습장();
-		System.out.println(a.solution3("sadfdsfd", "d"));
+		int[] answer = {0,1,2,3};
+			System.out.println(a.solution4(answer));
+		
 	}
 	
-	public String solution3(String my_string, String letter) {
-        String answer = my_string;
-        
-        
-        for(int i=0; i<my_string.length(); i++) {
-        	
-        	System.out.println(my_string.charAt(i) +", "+ letter.charAt(0));
-        	
-        	if(my_string.charAt(i) == letter.charAt(0)) {
-        		//letter에 있는 한글자가 my_string을 처음부터 끝까지 쭉 실행했을때 letter안에 있는 글자가 == 될때
-        		System.out.println("@@@@");
-        		// 만약에 my string과 letter에 있는 한글자가 동일한게 있을때
-        		answer = my_string.substring(0);
-        		return "gege";
-        	} 
-        	
-        }
-        
-        
-        
+    public int[] solution4(int[] num) {
+    	int[] answer = new int[num.length];
+    	for(int i=0; i<num.length; i++) {
+    		answer[i] = num[num.length-i-1];
+    		System.out.println(answer[i]);
+    	}
         return answer;
     }
 
+	public String solution3(String my_string, String letter) {
+		String answer = "";
+		int leng = my_string.length();
+
+		for (int i = 0; i < leng; i++) {
+			if (my_string.charAt(i) != letter.charAt(0)) {
+				answer = answer.concat(i+my_string.substring(i, i + 1)+",");
+			}
+		}
+		return answer;
+
+	}
+
 	public int solution2(String str1, String str2) {
-		int answer =2;
-		for (int i = 0; i <= str1.length()-str2.length(); i++) {
-			
-			System.out.println("i: " +i + ", " + str1.substring(i, str2.length()+i));
-			
-			if (str1.substring(i, str2.length()+i).equals(str2)) {
+		int answer = 2;
+		for (int i = 0; i <= str1.length() - str2.length(); i++) {
+
+			System.out.println("i: " + i + ", " + str1.substring(i, str2.length() + i));
+
+			if (str1.substring(i, str2.length() + i).equals(str2)) {
 				return 1;
 			} else {
-				answer =2;
+				answer = 2;
 			}
 		}
 		return answer;
