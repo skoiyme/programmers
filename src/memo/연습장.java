@@ -1,9 +1,12 @@
 package memo;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+
 
 
 public class 연습장 {
@@ -12,20 +15,266 @@ public class 연습장 {
 
 		연습장 a1 = new 연습장();
 
-		int[] num = { 12, 4, 15, 46, 38, 1, 14 };
-//		int[] num2 = { 70, 11, 2 };
-		// String[] str = { "abc", "def", "ghi" };
+		int[] num = { 6,5 };
+		//int[] num2 = { 3,3,3,3,3 };
+		//String[] str = { "    programmers  " };
 
-		//System.out.print(Arrays.toString(a1.solution58("")));
-		System.out.println(a1.solution58("205"));
+		System.out.print(Arrays.toString(a1.solution72("i    love  you")));
+		//System.out.println(a1.solution72());
+		// 장군11 병정2 일반
 		//a1.solution47();
 	}
 	
+	public String[] solution72(String my_string) {
+        String[] answer = {};
+        String str = "";
+        str=my_string.replace(" +", "");
+        //answer=str.split(" ");
+        System.out.println(str);
+        
+        return answer;
+    }
 	
-	public String solution58(String rsp) {
+	public int solution71(int hp) {
+        int answer = 0;
+        int ant1 = 0;
+        int ant2 = 0;
+        int ant3 = 0;
+        
+        ant1=hp/5;
+        ant2=hp%5/3;
+        ant3=hp%5%3;
+        
+        answer=ant1+ant2+ant3;
+        
+        return answer;
+    }
+	
+	
+	public int[] solution70(int start_num, int end_num) {
+        int[] answer = new int[start_num-end_num+1];
+        Integer[] integerArr = new Integer[start_num-end_num+1];
+        int num = 0;
+        
+        for(int i=end_num; i<=start_num; i++) {
+        	answer[num]=i;
+        	num++;
+        }
+        
+        for(int i=0; i<answer.length; i++) {
+        	integerArr[i]=answer[i];
+        }
+        Arrays.sort(integerArr, Collections.reverseOrder());
+        
+        for(int i=0; i<answer.length; i++) {
+        	answer[i]=integerArr[i];
+        }
+        
+        return answer;
+    }
+	
+	
+	public int[] solution69(String my_string) {
+        int[] answer = {};
+        int num = 0;
+        
+        List<Integer> list = new ArrayList<Integer>();
+        
+        
+        
+        for(int i=0; i<my_string.length(); i++) {
+        	if( my_string.charAt(i) >= 48 && my_string.charAt(i) <= 57 ) {
+        		list.add(Character.getNumericValue(my_string.charAt(i)));
+        	}
+        }
+        
+        answer = new int[list.size()];
+        
+        for(int i=0; i<list.size(); i++) {
+        	answer[i]=list.get(i);
+        }
+        
+        
+        Arrays.sort(answer);
+        return answer;
+    }
+	
+	public int solution68(String my_string, String target) {
+        int answer = 0;
+        for(int i=0; i<=my_string.length()-target.length(); i++) {
+        		if(my_string.substring(i,target.length()+i).equals(target)) {
+        			answer=1;
+        		}
+        		System.out.println(my_string.substring(i,target.length()+i));
+        		
+        }
+        return answer;
+    }
+	
+	public int[] solution67(int[] arr) {
+        int[] answer = {};
+        int n = 0;
+        int idx = 0;
+        for(int i=0; i<arr.length; i++) {
+        	for(int j=0; j<arr[i]; j++) {
+        		idx++;
+        	}
+        }
+        
+        answer = new int[idx];
+        
+        
+        for(int i=0; i<arr.length; i++) {
+        	for(int j=0; j<arr[i]; j++) {
+        		answer[n++]=arr[i];
+        	}
+        }
+        
+        
+        
+        return answer;
+	}
+	
+	public String solution66(String my_string, int[] index_list) {
         String answer = "";
-        Integer.parseInt(rsp);
-        if()
+        for(int i=0; i<index_list.length; i++) {
+        	answer+=my_string.substring(index_list[i],index_list[i]+1);
+        }
+        return answer;
+    }
+	
+	public int[] solution65(int[] num_list) {
+        int[] answer = new int[num_list.length-5];
+        Arrays.sort(num_list);
+        for(int i=5; i<num_list.length; i++) {
+        	answer[i-5]=num_list[i];
+        }
+        return answer;
+    }
+	
+	public int solution64(int[] arr1, int[] arr2) {
+        int answer = 0;
+        int num1 = 0;
+        int num2 = 0;
+        if(arr1.length < arr2.length) {
+        	return -1;
+        }
+        if(arr1.length > arr2.length) {
+        	return 1;
+        }
+        for(int i=0; i<arr1.length; i++) {
+        	num1+=arr1[i];
+        	num2+=arr2[i];
+        }
+        
+        if(num1 < num2) {
+        	answer=-1;
+        } 
+        if(num1 > num2) {
+        	answer=1;
+        }
+        		
+        
+        return answer;
+    }
+	
+	public String[] solution63(String my_string) {
+		
+		ArrayList<String> list = new ArrayList<String>();
+		
+        String[] answer = {};
+        
+        int num = 0;
+        
+        for(int i=0; i<my_string.length(); i++) {
+        	if(my_string.substring(i,i+1).equals(" ")) {
+        		list.add(my_string.substring(num, i));
+        		num=i+1;
+        		
+        	}
+        }
+        
+        list.add(my_string.substring(num));
+        
+        answer= new String[list.size()];
+        
+        
+        for(int i=0; i<list.size(); i++) {
+        	answer[i]=list.get(i);
+        }
+        
+        return answer;
+    }
+	
+	public String solution62(String cipher, int code) {
+        String answer = "";
+        for(int i=code-1; i<cipher.length(); i+=code) {
+        	answer.concat(cipher.substring(i, i+1));
+        }
+       
+        return answer;
+    }
+	
+	public int[] solution61(int n, int k) {
+        List<Integer> list = new ArrayList<>();
+        for(int i=1; i<=n; i++) {
+        	if(i%k == 0) {
+        		list.add(i);
+        	}
+        }
+        int[] answer = new int[list.size()];
+        
+        for(int i=0; i<list.size(); i++) {
+        	answer[i]=list.get(i);
+        	
+        }
+        
+        return answer;
+    }
+	
+	public String solution60(String rsp) {
+        String answer = "";
+        for(int i=0; i<rsp.length(); i++) {
+        	switch (rsp.substring(i, i+1)){
+            case "2":
+                answer+="0";
+                break;
+            case "0":
+            	answer+="5";
+                break;
+            case "5":
+            	answer+="2";
+                break;
+            default:
+        	}
+        }
+        return answer;
+    }
+	
+	public String solution59(String str) {
+        String answer = "";
+        for(int i=0; i<str.length(); i++){
+        	
+            if(str.charAt(i) >= 65 && str.charAt(i) <= 90){
+            	answer+=str.substring(i,i+1).toLowerCase();
+            }
+            if(str.charAt(i) >= 97 && str.charAt(i) <= 122){
+                answer+=str.substring(i,i+1).toUpperCase();
+            }
+        }
+       
+        return answer;
+    }
+	
+	public String[] solution58(String[] strArr) {
+        String[] answer = new String[strArr.length];
+        for(int i=0; i<strArr.length; i++) {
+        	if(i%2 == 0) { // 짝수
+        		answer[i]=strArr[i].toLowerCase();
+        	} else {
+        		answer[i]=strArr[i].toUpperCase();
+        	}
+        }
         return answer;
     }
 	
@@ -47,19 +296,20 @@ public class 연습장 {
     }
 	
 	
-	//다시 해야함
-	
-	public int[] solution55(int[] num_list) {
-        int[] answer = {};
-        List<Integer> list = new ArrayList<Integer>();
-        
-        for(int i=0; i<num_list.length; i++) {
-        	list.add(num_list[i]);
+	public int solution55(String myString, String pat) {
+        int answer = 0;
+        myString=myString.toUpperCase();
+        pat=pat.toUpperCase();
+        if(myString.length() < pat.length()) {
+        	return 0;
         }
-        answer = new int[list.size()];
-        
-        for(int i=0; i<list.size(); i++) {
-        	answer[i]=list.get(i);
+        if(pat.equals(myString)) {
+        	answer=1;
+        }
+        for(int i=0; i<myString.length()-pat.length(); i++) {
+        	if(pat.equals(myString.substring(i, pat.length()+i))) {
+        		answer=1;
+        	}
         }
         
         return answer;
