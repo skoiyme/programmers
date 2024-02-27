@@ -25,10 +25,15 @@ public class 연습장 {
 		//a1.solution47();
 	}
 	
+	public int solution73(String s) {
+        int answer = Integer.parseInt(s);
+        return answer;
+    }
+	
 	public String[] solution72(String my_string) {
         String[] answer = {};
         String str = "";
-        str=my_string.replace(" +", "");
+        str=my_string.replace (" +", "");
         //answer=str.split(" ");
         System.out.println(str);
         
