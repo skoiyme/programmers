@@ -14,7 +14,7 @@ class Solution {
         for(int i=0; i<list.size(); i++) {
         	answer[i]=list.get(i);
         }
-        System.out.println(answer);
+      
         return answer;
     }
 }
