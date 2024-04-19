@@ -1,12 +1,12 @@
 class Solution {
     public long solution(long n) {
-       long answer = -1;
-		long r = (long)Math.sqrt(n);
-		long n2 = 0;
-		if(r*r == n) {
-			n2=r+1;
-			answer=n2*n2;
+      long i = 1;
+		while (i*i < n) {
+			i++;
 		}
-		return answer;	
+		if(i*i == n) {
+			return (i+1)*(i+1);
+		}
+		return -1;
     }
 }
